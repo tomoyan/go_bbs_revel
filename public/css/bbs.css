@@ -1,0 +1,28 @@
+input,
+input[type="text"],
+input[type="email"],
+textarea { font-family:'メイリオ',Meiryo; }
+
+.message_post {
+	margin: auto;
+	border:3px solid #8AC007;
+	padding: 10px;
+	text-align:center;
+	font-family:'メイリオ',Meiryo;
+}
+
+.display_messages {
+	text-align:center;
+}
+
+.display_messages hr{
+	text-align:center;
+	border:1px solid #8AC007;
+}
+
+.thank_you {
+	margin: auto;
+	border:3px solid #8AC007;
+	padding: 10px;
+	text-align:center;
+}

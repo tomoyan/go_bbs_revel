@@ -1,0 +1,59 @@
+{{set . "title" "Go掲示板"}}
+{{template "header.html" .}}
+
+<div class="message_post">
+<h1>
+  <a href="/">
+  <center>Go掲示板
+    <img src="/public/img/talks.png" alt="gopher talks img"-->
+  </center>
+</a>
+</h1>
+
+{{template "flash.html" .}}
+
+<form action="create" method="POST">
+  <label for="name">おなまえ</label></br>
+  {{with $field := field "message.Name" .}}
+  <p class="{{$field.ErrorClass}}">
+  * <input type="text" id="name" name="{{$field.Name}}" value="{{$field.Flash}}" placeholder="おなまえ" size="40"/>
+  <span class="error">{{$field.Error}}</span>
+  </p>
+  {{end}}
+
+
+  <label for="email">Eメール</label></br>
+  {{with $field := field "message.Email" .}}
+  * <input type="email" id="email" name="{{$field.Name}}" value="{{$field.Flash}}" placeholder="Eメール" size="40"/>
+  <span class="error">{{$field.Error}}</span>
+  {{end}}
+
+
+
+  <label for="title">タイトル</label></br>
+  {{with $field := field "message.Title" .}}
+  * <input type="text" id="title" name="{{$field.Name}}" value="{{$field.Flash}}" placeholder="タイトル" size="80"/>
+  <span class="error">{{$field.Error}}</span>
+  {{end}}
+
+  <label for="message">メッセージ</label></br>
+  {{with $field := field "message.Message" .}}
+  * <textarea id="message" name="{{$field.Name}}" cols="80" rows="5" placeholder="メッセージを入力">{{$field.Flash}}</textarea>
+  <span class="error">{{$field.Error}}</span>
+  {{end}}
+
+  </br>
+  <input type="submit" name="submit" value="送信"/>
+  <input type="reset" name="reset" value="リセット" />
+</form>
+</div>
+
+<div class="display_messages">
+  {{range .messages}}
+  <p>{{.Title}} 投稿者: <a href="mailto:{{.Email}}">{{.Name}}</a> 投稿日: {{.Created}}<p>
+  <p>{{.Message}}</p>
+  <hr>
+  {{end}}
+</div>
+
+{{template "footer.html" .}}
