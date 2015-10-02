@@ -24,9 +24,10 @@ func (message Message) Validate(v *revel.Validation) {
 		revel.Required{},
 		revel.MinSize{3},
 	).Message("Name is required and more than 3 characters!")
-	//v.Required(message.Name).Message("Name is required!")
-	//v.MinSize(message.Name, 3).Message("Name is not long enough!")
+
 	v.Required(message.Email).Message("Email is required!")
+
 	v.Required(message.Title).Message("Title is required!")
+
 	v.Required(message.Message).Message("Message is required!")
 }

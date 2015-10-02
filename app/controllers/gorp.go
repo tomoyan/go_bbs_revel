@@ -62,6 +62,7 @@ func (c *GorpController) Begin() r.Result {
 	r.INFO.Println("Start GorpController.Begin")
 	txn, err := Dbm.Begin()
 	if err != nil {
+		r.ERROR.Println("Begin Error")
 		panic(err)
 	}
 	c.Txn = txn
@@ -74,6 +75,7 @@ func (c *GorpController) Commit() r.Result {
 		return nil
 	}
 	if err := c.Txn.Commit(); err != nil && err != sql.ErrTxDone {
+		r.ERROR.Println("Commit Error")
 		panic(err)
 	}
 	c.Txn = nil
@@ -86,6 +88,7 @@ func (c *GorpController) Rollback() r.Result {
 		return nil
 	}
 	if err := c.Txn.Rollback(); err != nil && err != sql.ErrTxDone {
+		r.ERROR.Println("Rollback Error")
 		panic(err)
 	}
 	c.Txn = nil
