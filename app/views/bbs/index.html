@@ -16,7 +16,7 @@
   <label for="name">おなまえ</label></br>
   {{with $field := field "message.Name" .}}
   <p class="{{$field.ErrorClass}}">
-  * <input type="text" id="name" name="{{$field.Name}}" value="{{$field.Flash}}" placeholder="おなまえ" size="40"/>
+  * <input type="text" id="name" name="{{$field.Name}}" value="{{$field.Flash}}" placeholder="おなまえ" size="40"/></br>
   <span class="error">{{$field.Error}}</span>
   </p>
   {{end}}
@@ -24,22 +24,28 @@
 
   <label for="email">Eメール</label></br>
   {{with $field := field "message.Email" .}}
-  * <input type="email" id="email" name="{{$field.Name}}" value="{{$field.Flash}}" placeholder="Eメール" size="40"/>
+  <p class="{{$field.ErrorClass}}">
+  * <input type="email" id="email" name="{{$field.Name}}" value="{{$field.Flash}}" placeholder="Eメール" size="40"/></br>
   <span class="error">{{$field.Error}}</span>
+  </p>
   {{end}}
 
 
 
   <label for="title">タイトル</label></br>
   {{with $field := field "message.Title" .}}
-  * <input type="text" id="title" name="{{$field.Name}}" value="{{$field.Flash}}" placeholder="タイトル" size="80"/>
+  <p class="{{$field.ErrorClass}}">
+  * <input type="text" id="title" name="{{$field.Name}}" value="{{$field.Flash}}" placeholder="タイトル" size="80"/></br>
   <span class="error">{{$field.Error}}</span>
+  </p>
   {{end}}
 
   <label for="message">メッセージ</label></br>
   {{with $field := field "message.Message" .}}
-  * <textarea id="message" name="{{$field.Name}}" cols="80" rows="5" placeholder="メッセージを入力">{{$field.Flash}}</textarea>
+  <p class="{{$field.ErrorClass}}">
+  * <textarea id="message" name="{{$field.Name}}" cols="80" rows="5" placeholder="メッセージを入力">{{$field.Flash}}</textarea></br>
   <span class="error">{{$field.Error}}</span>
+  </p>
   {{end}}
 
   </br>

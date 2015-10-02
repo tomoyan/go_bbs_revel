@@ -6,7 +6,6 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/revel/modules/db/app"
 	r "github.com/revel/revel"
-	//"golang.org/x/crypto/bcrypt"
 	"revel-bbs/app/models"
 	"time"
 )
@@ -20,6 +19,7 @@ const (
 )
 
 func InitDB() {
+	r.INFO.Println("Start InitDB")
 	db.Init()
 	Dbm = &gorp.DbMap{Db: db.Db, Dialect: gorp.SqliteDialect{}}
 
@@ -59,6 +59,7 @@ type GorpController struct {
 }
 
 func (c *GorpController) Begin() r.Result {
+	r.INFO.Println("Start GorpController.Begin")
 	txn, err := Dbm.Begin()
 	if err != nil {
 		panic(err)
@@ -68,6 +69,7 @@ func (c *GorpController) Begin() r.Result {
 }
 
 func (c *GorpController) Commit() r.Result {
+	r.INFO.Println("Start GorpController.Commit")
 	if c.Txn == nil {
 		return nil
 	}
@@ -79,6 +81,7 @@ func (c *GorpController) Commit() r.Result {
 }
 
 func (c *GorpController) Rollback() r.Result {
+	r.INFO.Println("Start GorpController.Rollback")
 	if c.Txn == nil {
 		return nil
 	}

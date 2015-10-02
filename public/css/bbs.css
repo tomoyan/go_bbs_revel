@@ -26,3 +26,11 @@ textarea { font-family:'メイリオ',Meiryo; }
 	padding: 10px;
 	text-align:center;
 }
+
+form p.hasError {
+    color: #c00;
+}
+
+form .hasError .error {
+    font-size: 80%;
+}

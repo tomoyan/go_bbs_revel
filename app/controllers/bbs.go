@@ -13,6 +13,7 @@ type BBS struct {
 }
 
 func (c BBS) Index() revel.Result {
+	revel.INFO.Println("Start BBS.Index")
 	results, err := c.Txn.Select(models.Message{},
 		`select * from Message`)
 	if err != nil {
@@ -29,22 +30,24 @@ func (c BBS) Index() revel.Result {
 }
 
 func (c BBS) ConfirmCreate(message models.Message) revel.Result {
+	revel.INFO.Println("Start BBS.ConfirmCreate")
 	message.Created = time.Now().Format(DATE_FORMAT)
 
-	fmt.Println("### Form Input ###")
-	fmt.Println("Message:", message)
-	fmt.Println("Name:", message.Name)
-	fmt.Println("Email:", message.Email)
-	fmt.Println("Title:", message.Title)
-	fmt.Println("Message:", message.Message)
-	fmt.Println("Created:", message.Created)
+	fmt.Println("Input Message:", message)
+	//fmt.Println("### Form Input ###")
+	//	fmt.Println("Name:", message.Name)
+	//	fmt.Println("Email:", message.Email)
+	//	fmt.Println("Title:", message.Title)
+	//	fmt.Println("Message:", message.Message)
+	//	fmt.Println("Created:", message.Created)
 
-	c.Validation.Required(message.Name).Message("Name is required!")
-	c.Validation.MinSize(message.Name, 3).Message("Name is not long enough!")
-	c.Validation.Required(message.Email).Message("Email is required!")
-	c.Validation.Required(message.Title).Message("Title is required!")
-	c.Validation.Required(message.Message).Message("Message is required!")
+	//	c.Validation.Required(message.Name).Message("Name is required!")
+	//	c.Validation.MinSize(message.Name, 3).Message("Name is not long enough!")
+	//	c.Validation.Required(message.Email).Message("Email is required!")
+	//	c.Validation.Required(message.Title).Message("Title is required!")
+	//	c.Validation.Required(message.Message).Message("Message is required!")
 
+	message.Validate(c.Validation)
 	if c.Validation.HasErrors() {
 		c.Validation.Keep()
 		c.FlashParams()
