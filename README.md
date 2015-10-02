@@ -1,4 +1,4 @@
-# Welcome to Revel
+# Welcome to Revel BBS
 
 ## Getting Started
 
@@ -6,19 +6,19 @@ A high-productivity web framework for the [Go language](http://www.golang.org/).
 
 ### Start the web server:
 
-    revel run myapp
+    revel run revel-bbs
 
    Run with <tt>--help</tt> for options.
 
 ### Go to http://localhost:9000/ and you'll see:
 
-"It works"
+"Go掲示板"
 
 ### Description of Contents
 
 The default directory structure of a generated Revel application:
 
-    myapp               App root
+    revel-bbs           App root
       app               App sources
         controllers     App controllers
           init.go       Interceptor registration
@@ -37,7 +37,7 @@ The default directory structure of a generated Revel application:
 
 app
 
-    The app directory contains the source code and templates for your application.
+    The app directory contains the source code and templates for this application.
 
 conf
 
