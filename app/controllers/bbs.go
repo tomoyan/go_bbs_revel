@@ -15,7 +15,7 @@ type BBS struct {
 func (c BBS) Index() revel.Result {
 	revel.INFO.Println("Start BBS.Index")
 	results, err := c.Txn.Select(models.Message{},
-		`select * from Message`)
+		`select * from Message order by MessageId desc`)
 	if err != nil {
 		panic(err)
 	}
@@ -59,6 +59,6 @@ func (c BBS) ConfirmCreate(message models.Message) revel.Result {
 		panic(err)
 	}
 
-	c.Flash.Success("Thank you, %sさん!", message.Name)
+	//c.Flash.Success("Thank you, %sさん!", message.Name)
 	return c.Render()
 }
