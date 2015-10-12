@@ -6,7 +6,7 @@ A high-productivity web framework for the [Go language](http://www.golang.org/).
 
 ### Start the web server:
 
-    revel run revel-bbs
+    revel run github.com/tomoyan/go_bbs_revel
 
    Run with <tt>--help</tt> for options.
 
