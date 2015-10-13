@@ -6,7 +6,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/revel/modules/db/app"
 	r "github.com/revel/revel"
-	"revel-bbs/app/models"
+	"github.com/tomoyan/go_bbs_revel/app/models"
 	"time"
 )
 

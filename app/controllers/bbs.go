@@ -3,7 +3,7 @@ package controllers
 import (
 	"fmt"
 	"github.com/revel/revel"
-	"revel-bbs/app/models"
+	"github.com/tomoyan/go_bbs_revel/app/models"
 	"time"
 )
 
